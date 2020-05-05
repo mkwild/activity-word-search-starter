@@ -15,9 +15,9 @@ let results = document.querySelector('#search-results')
 
 searchButton.addEventListener('click', function () {
 
-  let search = inputBox.value
-
-  if(paragraph.innerText.includes(search)) {
+  let search = inputBox.value.trim().toLowerCase()
+  
+  if(paragraph.innerText.toLowerCase().includes(search)) {
 
     results.innerText = "Match Found"
 
