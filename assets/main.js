@@ -10,9 +10,9 @@
 // elements to a variable, just like this:
 let searchButton = document.querySelector('#search-button')
 let inputBox = document.querySelector('#textbox')
-let sentence = document.querySelector('#sentence')
+const sentence = document.querySelector('#sentence')
 let results = document.querySelector('#search-results')
-const words = sentence.innerText.split(' ')
+let words = sentence.innerText.split(' ')
 
 searchButton.addEventListener('click', function () {
 
@@ -24,20 +24,13 @@ searchButton.addEventListener('click', function () {
     for (let index = 0; index < words.length; index ++) {
 
       if(words[index].includes(search)) {
-
         matches +=1
-
       }
-
       results.innerText = `Matches Found: ${matches}`
-
     }
   }
-
   else {
-
     results.innerText = "No Matches Found"
-
   }
   
 })
