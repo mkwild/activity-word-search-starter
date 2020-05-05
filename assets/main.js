@@ -10,24 +10,38 @@
 // elements to a variable, just like this:
 let searchButton = document.querySelector('#search-button')
 let inputBox = document.querySelector('#textbox')
-let paragraph = document.querySelector('#sentence')
+let sentence = document.querySelector('#sentence')
 let results = document.querySelector('#search-results')
+const words = sentence.innerText.split(' ')
 
 searchButton.addEventListener('click', function () {
 
   let search = inputBox.value.trim().toLowerCase()
+  let matches = 0
   
-  if(paragraph.innerText.toLowerCase().includes(search)) {
+  if(sentence.innerText.toLowerCase().includes(search)) {
 
-    results.innerText = "Match Found"
+    for (let index = 0; index < words.length; index ++) {
 
+      if(words[index].includes(search)) {
+
+        matches +=1
+
+      }
+
+      results.innerText = `Matches Found: ${matches}`
+
+    }
   }
+
   else {
 
-    results.innerText = "No Match Found"
+    results.innerText = "No Matches Found"
 
   }
- 
+  
+})
+
   // TODO 2: Write an IF statement which determines whether
   // the user-supplied string from #textbox is included in
   // the #sentence string.
@@ -50,7 +64,6 @@ searchButton.addEventListener('click', function () {
   // otherwise update it with a failure message (such as, 
   // "No results. Too bad!")
 
-})
 
 // STRETCH GOALS (easiest to hardest):
 //
