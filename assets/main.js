@@ -27,6 +27,9 @@ searchButton.addEventListener('click', function () {
         matches +=1
       }
       results.innerText = `Matches Found: ${matches}`
+
+      // JS for Highlighting Matched Term
+      sentence.innerHTML = sentence.innerHTML.replace(new RegExp(inputBox.value, "gi"), (match) => `<mark>${match}</mark>`)
     }
   }
   else {
